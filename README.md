@@ -6,7 +6,32 @@ This bundle exposes Laravel's Artisan CLI to the web. As such, it probably shoul
 
 ## Installation
 
-Coming soon...
+Add the following to your app's composer.json:
+
+```
+{
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/joecwallace/web-artisan"
+        }
+    ],
+    "require": {
+        ...
+        "joecwallace/artisan": "dev-master"
+    }
+}
+```
+
+Run ``` php composer.phar update ```
+
+Add ``` 'Joecwallace\Artisan\ArtisanWebServiceProvider', ``` to the ``` 'providers' ``` array in ``` app/config/app.php ```
+
+### Optional configuration
+
+Run ``` php artisan config:publish joecwallace/artisan ```
+
+Edit the ``` 'handles' ``` option. This sets the URI that Web Artisan should respond to, so ``` 'handles' => 'admin' ``` would set the package to respond to ``` http://my.awesome.app/admin ```, ``` http://my.awesome.app/admin/help+migrate ```, etc.
 
 ## Usage
 
