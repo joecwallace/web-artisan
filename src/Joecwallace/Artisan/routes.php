@@ -1,15 +1,16 @@
 <?php
 
 use Joecwallace\Artisan\ArtisanRunner as Runner;
-use Joecwallace\Artisan\HtmlOutput;
 
-Route::get(Config::get('artisan::handles').'{uri}', function($uri = '')
-{
-    $args = array();
+Route::get(Config::get('artisan::handles') . '{uri}', array(
+    'before' => Config::get('artisan::filter'),
+    function($uri = '') {
+        $args = array();
 
-    if ( ! empty($uri)) {
-        $args = explode('+', trim($uri, '/'));
+        if ( ! empty($uri)) {
+            $args = explode('+', trim($uri, '/'));
+        }
+
+        Runner::run($args);
     }
-
-    Runner::run($args);
-})->where('uri', '^($|\/.*)');
+))->where('uri', '^($|\/.*)');
