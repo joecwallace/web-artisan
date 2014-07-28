@@ -33,6 +33,8 @@ Run ``` php artisan config:publish joecwallace/artisan ```
 
 Edit the ``` 'handles' ``` option. This sets the URI that Web Artisan should respond to, so ``` 'handles' => 'admin' ``` would set the package to respond to ``` http://my.awesome.app/admin ```, ``` http://my.awesome.app/admin/help+migrate ```, etc.
 
+Edit the ``` 'filter' ``` option. Filter provide a convenient way of limiting access to a command run.
+
 ## Usage
 
 1. Take an artisan task: ``` php artisan config:publish joecwallace/artisan ```
